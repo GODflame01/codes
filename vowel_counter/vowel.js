@@ -6,12 +6,12 @@ let count = 0;
 
 function vowelcounter(){
     str = str.toLowerCase();
-    newstr= str.split("")
-    for(letter of newstr){
-        for(lett of vowel){
+    let newstr= str.split("")
+    for(let letter of newstr){
+        for(let v of vowel){
             
-            if(letter===lett){
-                count+=1
+            if(letter===v){
+                count++;
             }
         }
     }
