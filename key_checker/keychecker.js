@@ -7,5 +7,4 @@ window.addEventListener("keydown",function(dets){
     else{
         h3.textContent = dets.key
     }
-    console.log(dets.key)
 })
