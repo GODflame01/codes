@@ -12,24 +12,50 @@ form.addEventListener("submit",function(dets){
     profile.classList.add("profile");
 
     let img = document.createElement("img");
-    img.setAttribute("src","https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D")
-
+    img.setAttribute("src",dets.target[0].value);
+    
+    let imgurl = img.getAttribute("src")
+    if(imgurl === ""){
+        alert("please enter your profile  url! ");
+        return;
+    }
+    
     let name= document.createElement("h2");
-    name.textContent = "your name"
-
+    name.textContent = dets.target[1].value;
+    
+    if(name.textContent === ""){
+        alert("please enter your name! ");
+        return;
+    }
+    
     let email = document.createElement("h4");
-    email.textContent = "test@gmail.com";
-
+    email.textContent = dets.target[2].value;
+    if(email.textContent === ""){
+        alert("please enter your email! ");
+        return;
+    }
+    
     let info = document.createElement("p");
-    info.textContent = "this is the description area ..you can tell something about yourself...:)"
+    info.textContent = dets.target[3].value;
+    if(info.textContent === ""){
+        alert("please enter your info! ");
+        return;
+    }
 
-    profile.appendChild(img);
-    card.appendChild(profile);
+        profile.appendChild(img);
+        card.appendChild(profile);
+        card.appendChild(name);
+        card.appendChild(email);
+        card.appendChild(info);
+        main.appendChild(card);
 
-    card.appendChild(name);
-    card.appendChild(email);
-    card.appendChild(info);
 
-    main.appendChild(card);
+    inputs.forEach(function(inp){
+        if(inp.type!== "submit"){
+            inp.value = "";
+        }
+        
+    }); 
+    
 
-})
+});
