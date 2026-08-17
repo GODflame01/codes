@@ -1,17 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>to-do-list</title>
     <link rel="stylesheet" href="to-do-list.css">
 </head>
+
 <body>
-    <label>
-        <input type="checkbox">
-        <s> completed</s>
-    </label>
+    <div class="bg-pattern"></div>
+
+
+    <div class="navbar">
+        <div class="about">
+            <h3>about</h3>
+        </div>
+        <div class="github"><img src="github.png" alt=""></div>
+    </div>
+
+
+    <div class="main">
+        <div class="todo-logo">
+            <img src="todotrans.jpg" alt="">
+        </div>
+
+        <div class="text-content">
+            <input id="task" type="text" placeholder="ENTER YOUR TO-DO TASK">
+
+            <button class="Add-btn">Add</button>
+        </div>
+
+
+        <div class="container-main">
+            <div class="to-do-list-container">
+                <div class="container-nav">
+                    <input class="mark-all-btn" type="button" value="MARK ALL DONE">
+                    <div class="navtext">
+                        <p>ACT NOW, CLEAR GOALS</p>
+                    </div>
+                </div>
+                <ul class="todo-content">
+                    <li class="todo-item" draggable="true">
+                        <div class="todo-task">this is task 1</div>
+                    </li>
+                    <li class="todo-item" draggable="true">
+                        <div class="todo-task">this is task 2</div>
+                    </li>
+                </ul>
+
+            </div>
+
+            <div class="sidebar">
+                <ul class="sidebar-ul">
+                    <li id="sidebar-header"><p>SIDEBAR</p></li>
+                    <li id="clear">
+                        <input class="clear-all" type="button" value=" clear all">
+                    </li>
+                    <li>
+                        <input class="finish-all" type="button" value="FINISH ALL">
+                    </li>
+                    <li>
+                        <input class="Trash" type="button" value="Trash">
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
 
     <script src="to-do-list.js"></script>
+    <script src="to-do.js"></script>
 </body>
+
 </html>
