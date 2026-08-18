@@ -95,6 +95,10 @@ body{
     display: flex;
     flex-direction: column;
     gap: 15px;
+    
+}
+.to-do-list-container ul{
+    align-items: center ;
 }
 h2{
     margin: 2px;
@@ -106,7 +110,6 @@ h2{
     height: 40px;
     border-radius: 6px 6px 0px 0px;
     display: flex;
-    /* gap: 20px; */
     justify-content: flex-start;
     align-items: center;
 }
@@ -148,7 +151,7 @@ li input{
     box-shadow:5px 5px 2px black;
     transition: 0.5s ease-in-out;
 }
-ul li{
+.sidebar-ul li{
     list-style: none;
     border-bottom: 2px solid black;
     border-radius: 7px 7px 0px 0px;
@@ -156,18 +159,93 @@ ul li{
     padding: 10px;
     width: 150px;
 }
-.side{
-    background-color: blanchedalmond;
+#sidebar-header{
+    background-color: rgb(248, 221, 181);
     
 }
-.clear, .clear-all{
+#clear ,.clear-all{
     border-radius: 0px ;
     background-color: rgb(246, 193, 202);
+    font-size: large;
+}
+#finish-all{
+    font-size: medium;
+}
+#Trash{
+    font-size:larger;
 }
 .todo-content{
     border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+      
 }
-.todo-item{
+
+#todo-item{
+    border: 2px solid black;
+    border-radius: 7px;
+    height: 45px;
+    width: 550px;
+    margin: 3px;
+    padding: 10px;
+    display: flex;
+    text-align: start;
+    justify-content: space-around;
+}
+.todo-task{
+    width: 100%;
+    padding-right: 40px;
+    padding-left: 40px;
+    overflow-wrap: break-word;
+    position: relative;
+    display: block;
+
+}
+.complete,.delete{
+    border: 2px solid black;
     display: flex;
     flex-direction: column;
+    width: 20px;
+    height: 20px;
+    border-radius: 15px;
+    cursor: pointer;
+    /* box-shadow: -4px 5px 2px black ; */
+    transition: 0.5s ease-in-out;
+    
+}
+
+.footer{
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    display: inline-block;
+    height: 40px;
+    position: relative;
+    margin-top: auto;
+    padding-right: 20px;
+    padding-left: 20px;
+    align-items: center;
+    text-align: start;
+    justify-content: center;
+    padding-top: 4px;
+    background-color:beige;
+
+}
+/* .tick, .cross{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    bottom: 2.5px;
+} */
+.complete, .delete{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    bottom: 2.5px;
 }
