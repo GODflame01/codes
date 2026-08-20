@@ -28,7 +28,7 @@
         <div class="text-content">
             <input id="task" type="text" placeholder="ENTER YOUR TO-DO TASK">
 
-            <button class="Add-btn">Add</button>
+            <button class="Add-btn">Add +</button>
         </div>
 
 
@@ -41,27 +41,39 @@
                     </div>
                 </div>
                 <ul class="todo-content">
-                    <li class="todo-item" draggable="true">
-                        <div class="todo-task">this is task 1</div>
+                    <li  id="todo-item" draggable="true">
+
+                        
                     </li>
-                    <li class="todo-item" draggable="true">
-                        <div class="todo-task">this is task 2</div>
+                    
+                    <li class="todo-item" id="todo-item" draggable="true">
+
+                        <div class="complete"><span class="tick">✔</span></div>
+                        <div class="todo-task">this is task 333</div>
+                        <div class="delete"><span class="cross">✘</span></div>
                     </li>
+
+                    
+
                 </ul>
 
+                <div class="footer"> 2 items remaining</div>
             </div>
+
 
             <div class="sidebar">
                 <ul class="sidebar-ul">
-                    <li id="sidebar-header"><p>SIDEBAR</p></li>
+                    <li id="sidebar-header">
+                        <p>SIDEBAR</p>
+                    </li>
                     <li id="clear">
                         <input class="clear-all" type="button" value=" clear all">
                     </li>
                     <li>
-                        <input class="finish-all" type="button" value="FINISH ALL">
+                        <input id="finish-all" type="button" value="FINISH ALL">
                     </li>
                     <li>
-                        <input class="Trash" type="button" value="Trash">
+                        <input id="Trash" type="button" value="Trash">
                     </li>
                 </ul>
             </div>

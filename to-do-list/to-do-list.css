@@ -47,6 +47,7 @@ body{
 }
 .text-content input{
     border-right: none;
+    padding: 20px;
 }
 
 
@@ -233,19 +234,24 @@ li input{
     background-color:beige;
 
 }
-/* .tick, .cross{
+.tick, .delete{
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
     bottom: 2.5px;
-} */
-.complete, .delete{
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    bottom: 2.5px;
+}
+
+.tick{
+    display: none;
+}
+.tick.show{
+    display: inline;
+}
+.linethrough{
+    display: none;
+}
+.linethrough.show{
+    text-decoration: line-through;
 }
