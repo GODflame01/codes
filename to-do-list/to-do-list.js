@@ -2,19 +2,26 @@
 
 let todos = JSON.parse(localStorage.getItem("task")) || [];
 
-function savetodos(){
-
-    localStorage.setItem("task",JSON.stringify(todos));
+function savetodos() {
+    localStorage.setItem("task", JSON.stringify(todos));
 
 }
 
-function addtolocalstorage(){
+function cleartodos() {
+    localStorage.removeItem("task");
+
+}
+
+
+
+
+function addtolocalstorage() {
 
     let todo = {
 
         text: task.value,
 
-        completed : false
+        completed: false
 
     };
 
@@ -80,7 +87,7 @@ task.addEventListener("mouseleave", function () {
 
 let todocontent = document.querySelector(".todo-content")
 
-function loadtodo(todo){
+function loadtodo(todo) {
 
     const li = document.createElement("li");
 
@@ -100,7 +107,7 @@ function loadtodo(todo){
 
 }
 
-todos.forEach(function(todo){
+todos.forEach(function (todo) {
 
     loadtodo(todo);
 
@@ -116,7 +123,7 @@ addbtn.addEventListener("click", function () {
 
     } else {
 
-    let todo = addtolocalstorage();
+        let todo = addtolocalstorage();
 
         loadtodo(todo);
 
@@ -156,7 +163,7 @@ todocontent.addEventListener("click", function (e) {
 
         let todotask = todoitem.querySelector(".todo-task")
 
-        todo.completed =!todo.completed
+        todo.completed = !todo.completed
 
         if (todo.completed) {
 
@@ -196,27 +203,27 @@ finishall.addEventListener("click", function () {
 
         const todoitem = todocontent.querySelectorAll(".todo-item");
 
-        todoitem.forEach(function(allitem){
+        todoitem.forEach(function (allitem) {
 
-        const index = allitem.dataset.index;
+            const index = allitem.dataset.index;
 
             const todo = todos[index];
 
             const tick = allitem.querySelector(".tick")
 
-        const todotask = allitem.querySelector(".todo-task")
+            const todotask = allitem.querySelector(".todo-task")
 
-        todo.completed= true;
+            todo.completed = true;
 
-        tick.classList.add("show")
+            tick.classList.add("show")
 
-        allitem.style.backgroundColor = "rgb(195, 245, 226)"
+            allitem.style.backgroundColor = "rgb(195, 245, 226)"
 
-        todotask.style.textDecoration = "line-through"
+            todotask.style.textDecoration = "line-through"
 
-       })
+        })
 
-       savetodos();
+        savetodos();
 
     }
 
@@ -224,35 +231,40 @@ finishall.addEventListener("click", function () {
 
 //for mark all done button ...just created a event listner and linked it to finishall button ..
 
-let markallbtn= document.querySelector(".mark-all-btn")
+let markallbtn = document.querySelector(".mark-all-btn")
 
-markallbtn.addEventListener("click",function(){
+markallbtn.addEventListener("click", function () {
 
     finishall.click();
 
 })
+
+
 
 //for delete
 
 todocontent.addEventListener("click", function (e) {
 
     if (e.target.closest(".delete")) {
-
         const todoitem = e.target.closest(".todo-item")
+        let index = todoitem.dataset.index;
+        
+        todoitem.remove();
+        todos.splice(index,1);
+        todos.forEach(function (todo) {
 
-        const index = todoitem.dataset.index;
-
-            todoitem.remove();
-
-            todos.splice(index,1)
-
-            savetodos();
-
-            updatecount();
-
-    }
+    loadtodo(todo);
 
 })
+        savetodos();
+        updatecount();
+
+
+    }
+})
+
+
+
 
 // this is for clear-all button
 
@@ -274,7 +286,7 @@ clearall.addEventListener("click", function () {
 
     }
 
-    savetodos();
+    cleartodos();
 
 })
 
@@ -282,13 +294,13 @@ clearall.addEventListener("click", function () {
 
 let footer = document.querySelector(".footer")
 
-function updatecount(){
+function updatecount() {
 
-    let  todoitem = document.querySelectorAll(".todo-item");
+    let todoitem = document.querySelectorAll(".todo-item");
 
     let count = todoitem.length;
 
-    footer.textContent =`${count} items remaining`
+    footer.textContent = `${count} items remaining`
 
 }
 
