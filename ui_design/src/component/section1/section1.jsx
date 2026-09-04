@@ -2,13 +2,14 @@ import React from 'react'
 import Navbar from './navbar'
 import Center from './center'
 
-const section1 = () => {
+const section1 = (props) => {
   return (
-    <div className='h-screen w-full'>
+    <div className='h-screen w-full '>
         <Navbar />
-        <Center />
+        <Center users={props.users}/>
     </div>
   )
 }
 
 export default section1
+ 
