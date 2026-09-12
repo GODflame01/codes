@@ -5,10 +5,16 @@ const App = () => {
   const [num, setnum] = useState(0)
   
   function increase(){
-    setnum(num+1)
+    const newNum = num+1
+    setnum(newNum)
+    console.log(newNum)
+
+    
   }
   function decrease(){
-    setnum(num-1)
+    const newNum = num-1
+    setnum(newNum)
+    console.log(newNum)
   }
   function reset(){
     setnum(0)
