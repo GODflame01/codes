@@ -1,16 +1,22 @@
 import React, { useState } from 'react'
 
 const App = () => {
-  const [Task, setTask] = useState('')
+  const [title, setTitle] = useState('')
   const [details, setDetails] = useState('')
+  const [task, setTask] = useState([])
+
+
+  // button function 
   const submitted = (e) => {
-    console.log("form submitted by",Task)
+    console.log("form submitted by",title)
     console.log("details:",details);
     
     e.preventDefault()
 
+   const copyTask = {...task}
 
-    setTask('') 
+    console.log(copyTask)
+    setTitle('') 
     setDetails('')
   }
 
@@ -20,21 +26,21 @@ const App = () => {
 
 
       {/* leftside */}
-      <div className='bg-red-900 h-screen lg:w-1/2 '>
+      <div className='bg-black h-screen lg:w-1/2 '>
         <form onSubmit={(e) => {
           submitted(e)
         }}
           className='flex flex-col px-5 py-3 gap-5  text-white '>
-          <h1 className='font-bold text-3xl'>Enter Tasks</h1>
+          <h1 className='font-bold text-3xl tracking-wider'>Notes</h1>
 
           {/* input task area */}
           <input 
-            className='border-2 rounded outline-none h-10 p-2'
+            className='border-2 border-white rounded outline-none h-10 p-2'
             type="text"
             placeholder='Enter Task'
-            value={Task}
+            value={title}
             onChange={(e) => {
-              setTask(e.target.value)
+              setTitle(e.target.value)
 
             }}
           />
@@ -48,17 +54,20 @@ const App = () => {
             }}
           >
           </textarea>
-          <button className='bg-amber-800 rounded h-10 '>Add Task</button>
+          <button className='bg-white text-black hover:scale-95 border-black rounded h-10 '>Add Task</button>
         </form>
       </div>
 
 
       {/*rightside  */}
-      <div className='h-screen bg-amber-200 px-4 py-3 flex flex-wrap gap-5 overflow-auto lg:w-1/2 '>
+      <div className='h-screen bg-black px-4 py-4 flex flex-wrap gap-4 overflow-auto lg:w-1/2 border-l-4 border-white'>
 
-        <div className='h-35 w-32 bg-gray-50 rounded  overflow-auto p-2'></div>
-        <div className='h-35 w-32 bg-gray-50 rounded  overflow-auto p-2'></div>
-        <div className='h-35 w-32 bg-gray-50 rounded  overflow-auto p-2'></div>
+         <div className='h-60 w-52 relative px-4 bg-[url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHOI0reQLJbYio3nDn-3Do7tojc55WBcflQZPNwCsBcg&s=10)] bg-cover rounded  overflow-auto p-2'></div>
+         <div className='h-60 w-52 relative px-4 bg-[url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHOI0reQLJbYio3nDn-3Do7tojc55WBcflQZPNwCsBcg&s=10)] bg-cover rounded  overflow-auto p-2'></div>
+          <div className='h-60 w-52 relative px-4 bg-[url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHOI0reQLJbYio3nDn-3Do7tojc55WBcflQZPNwCsBcg&s=10)] bg-cover rounded  overflow-auto p-2'></div>
+          <div className='h-60 w-52 relative px-4 bg-[url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHOI0reQLJbYio3nDn-3Do7tojc55WBcflQZPNwCsBcg&s=10)] bg-cover rounded  overflow-auto p-2'></div>
+          <div className='h-60 w-52 relative px-4 bg-[url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHOI0reQLJbYio3nDn-3Do7tojc55WBcflQZPNwCsBcg&s=10)] bg-cover rounded  overflow-auto p-2'></div>
+      
 
       </div>
 
