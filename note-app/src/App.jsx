@@ -8,8 +8,6 @@ const App = () => {
 
   // button function 
   const submitted = (e) => {
-    console.log("form submitted by",title)
-    console.log("details:",details);
     
     e.preventDefault()
 
@@ -22,8 +20,16 @@ const App = () => {
   }
 
 
+  const deleteNote= (idx) =>{
+    const deleteTask =[...task]
+    deleteTask.splice(idx,1)
+
+    setTask(deleteTask)
+  }
+
+
   return (
-    <div className='flex lg:flex-row flex-col h-screen  '>
+    <div className='flex lg:flex-row flex-col h-full  '>
 
 
       {/* leftside */}
@@ -38,7 +44,7 @@ const App = () => {
           <input 
             className='border-2 border-white rounded outline-none h-10 p-2'
             type="text"
-            placeholder='Enter Task'
+            placeholder='Enter Your Task'
             value={title}
             onChange={(e) => {
               setTitle(e.target.value)
@@ -48,7 +54,7 @@ const App = () => {
 
             {/* input detail area */}
           <textarea className='border-2  rounded outline-none h-55 px-2 py-2'
-            placeholder="Task Details"
+            placeholder="Enter your Task Details"
             value={details}
             onChange={(e)=>{
               setDetails(e.target.value)
@@ -66,6 +72,13 @@ const App = () => {
         return (<div 
           key={idx}
           className=' h-60 w-52 relative custom-scrollbar scroll-smooth px-4  bg-[url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHOI0reQLJbYio3nDn-3Do7tojc55WBcflQZPNwCsBcg&s=10)] bg-cover rounded  overflow-auto p-2'>
+
+
+
+            <h2 onClick={()=>{
+              deleteNote(idx);
+              
+            }} className='top-10 absolute right-3 text-xs  hover:bg-red-500  rounded-full p-1 text-black'>❌</h2>
             <h2 className='py-8 px-3 text-2xl font-bold leading-tight'>{elem.title}</h2>
             <p className='px-3 leading-tight text-gray-500'>{elem.details}</p>
           </div>)
